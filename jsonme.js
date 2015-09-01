@@ -5,13 +5,13 @@ var crypto = require('crypto');
 var app = express();
 var fs = require('fs');
 var data = JSON.parse(fs.readFileSync(process.argv[3], 'utf8'));
-app.use(bodyparser.urlencoded({extended:false}));
+//app.use(bodyparser.urlencoded({extended:false}));
 //app.use(stylus.middleware(process.argv[3]));
 //app.set('views', process.argv[3]);
 app.set('view engine', 'jade');
 app.get('/books',function(request, response){
-    console.log(process.argv[3]);
-    response.end(JSON.parse(data));
+    //console.log(data);
+    response.end(JSON.stringify(data));
 });
 app.listen(process.argv[2]);
 
